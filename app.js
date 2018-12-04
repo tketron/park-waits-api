@@ -3,8 +3,9 @@ const Themeparks = require('themeparks');
 var app = express();
 
 app.get('/', function(req, res) {
+  const park = Themeparks.Parks.DisneylandResortMagicKingdom();
   res.send({
-    Output: 'Theme Parks Go Here!'
+    park: park
   });
 });
 
