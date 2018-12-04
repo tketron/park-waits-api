@@ -3,10 +3,19 @@ const Themeparks = require('themeparks');
 var app = express();
 
 app.get('/', function(req, res) {
-  const park = Themeparks.Parks.DisneylandResortMagicKingdom();
-  res.send({
-    park: park
-  });
+  const park = new Themeparks.Parks.DisneylandResortMagicKingdom();
+  park
+    .GetWaitTimes()
+    .then(rides => {
+      res.send({
+        rides: rides
+      });
+    })
+    .catch(err => {
+      res.send({
+        error: err
+      });
+    });
 });
 
 app.post('/', function(req, res) {
