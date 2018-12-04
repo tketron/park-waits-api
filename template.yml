@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: 2010-09-09
 Transform:
-- AWS::Serverless-2016-10-31
-- AWS::CodeStar
+  - AWS::Serverless-2016-10-31
+  - AWS::CodeStar
 
 Parameters:
   ProjectId:
@@ -35,11 +35,6 @@ Resources:
           Type: Api
           Properties:
             Path: /
-            Method: get
-        GetEvent:
-          Type: Api
-          Properties:
-            Path: /test
             Method: get
         PostEvent:
           Type: Api
